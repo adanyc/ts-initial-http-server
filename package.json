@@ -1,0 +1,26 @@
+{
+  "name": "typescript-initial-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "node_modules/.bin/tsc",
+    "build:watch": "npm run clean && npm run copy && node_modules/.bin/tsc -w",
+    "postbuild": "rimraf dist/**/*.map",
+    "start": "npx http-server ./dist -p 3000",
+    "all": "npm run clean && npm run build && npm run copy && npm run start",
+    "copy": "copyfiles -f ./src/index.html dist",
+    "lint": "",
+    "test": ""
+  },
+  "author": "adanyc",
+  "license": "ISC",
+  "dependencies": {
+    "copyfiles": "^2.4.1",
+    "typescript": "^4.3.5"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2"
+  }
+}
